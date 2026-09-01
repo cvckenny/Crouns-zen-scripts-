@@ -43,6 +43,7 @@ int RY;
 
 int LB_PRESS;
 int RT_PRESS;
+int RS_SPIN_ACTIVE;
 
 int HEADSHOT_MODE;
 int SNIPER_MODE;
@@ -145,7 +146,8 @@ main
     if(get_lval(XB1_A)&&get_ptime(XB1_A)>2000)combo_run(RUN_HORSE); 
 
 	if(get_val(XB1_RB)) combo_run(tonicspam);
-	if(event_press(XB1_RS)) combo_run(basespin);
+	if(event_press(XB1_RS) && !RS_SPIN_ACTIVE) { RS_SPIN_ACTIVE = TRUE; combo_run(basespin); }
+	if(event_release(XB1_RS)) RS_SPIN_ACTIVE = FALSE;
     
 /////////////////////////////////////////////////////////////////////   MENU_SECTION
 
@@ -473,6 +475,7 @@ combo basespin
     set_val(XB1_LY, -100);
     wait(40);
 }
+
 
 
 
