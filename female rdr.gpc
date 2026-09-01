@@ -145,8 +145,8 @@ main
     if(get_lval(XB1_A)&&get_ptime(XB1_A)>2000)combo_run(RUN_HORSE); 
 
 	if(get_val(XB1_RB)) combo_run(tonicspam);
-	if(get_lval(XB1_DOWN)&&get_lval(XB1_RIGHT)) combo_run(autospin_right);
-	if(get_lval(XB1_DOWN)&&get_lval(XB1_LEFT)) combo_run(autospin_left);
+	if(event_press(XB1_RIGHT)&&get_lval(XB1_DOWN)) combo_run(autospin_right);
+	if(event_press(XB1_LEFT)&&get_lval(XB1_DOWN)) combo_run(autospin_left);
     
 /////////////////////////////////////////////////////////////////////   MENU_SECTION
 
